@@ -3,7 +3,7 @@
 
 #include "Missile.h"
 
-#define proc void
+#define PROC void
 
 // Sets default values
 AMissile::AMissile()
@@ -15,7 +15,7 @@ AMissile::AMissile()
 }
 
 // Called when the game starts or when spawned
-proc AMissile::BeginPlay()
+PROC AMissile::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -24,7 +24,7 @@ proc AMissile::BeginPlay()
 }
 
 // Called every frame
-proc AMissile::Tick(float DeltaTime)
+PROC AMissile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
@@ -33,7 +33,7 @@ proc AMissile::Tick(float DeltaTime)
 	SetActorLocation(Loc);
 }
 
-proc AMissile::Explode_Implementation()
+PROC AMissile::Explode_Implementation()
 {
 	Destroy();
 }

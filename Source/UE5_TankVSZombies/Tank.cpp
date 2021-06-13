@@ -8,9 +8,9 @@
 #include "Camera/CameraComponent.h"
 #include "TankStatics.h"
 
-#define proc void
+#define PROC void
 
-proc FTankInput::Sanitize()
+PROC FTankInput::Sanitize()
 {
 	MovementInput = RawMovementInput.ClampAxes(-1.f, 1.f);
 	if (MovementInput.SizeSquared() > 1.f)
@@ -20,12 +20,12 @@ proc FTankInput::Sanitize()
 	RawMovementInput.Set(0.f, 0.f);
 }
 
-proc FTankInput::MoveX(const float AxisValue)
+PROC FTankInput::MoveX(const float AxisValue)
 {
 	RawMovementInput.X += AxisValue;
 }
 
-proc FTankInput::MoveY(const float AxisValue)
+PROC FTankInput::MoveY(const float AxisValue)
 {
 	RawMovementInput.Y += AxisValue;
 }
@@ -73,14 +73,14 @@ ATank::ATank()
 }
 
 // Called when the game starts or when spawned
-proc ATank::BeginPlay()
+PROC ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
 }
 
 // Called every frame
-proc ATank::Tick(float DeltaTime)
+PROC ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
@@ -144,7 +144,7 @@ proc ATank::Tick(float DeltaTime)
 }
 
 // Called to bind functionality to input
-proc ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+PROC ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
@@ -156,38 +156,38 @@ proc ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	InputComponent->BindAction(TEXT("Fire2"), IE_Released, this, &ATank::Fire2Released);
 }
 
-#define getter auto
-getter ATank::GetCurrentInput() const -> const FTankInput&
+#define GETTER auto
+GETTER ATank::GetCurrentInput() const -> const FTankInput&
 {
 	return TankInput;
 }
 
-proc ATank::MoveX(float AxisValue)
+PROC ATank::MoveX(float AxisValue)
 {
 	TankInput.MoveX(AxisValue);
 }
 
-proc ATank::MoveY(float AxisValue)
+PROC ATank::MoveY(float AxisValue)
 {
 	TankInput.MoveY(AxisValue);
 }
 
-proc ATank::Fire1Pressed()
+PROC ATank::Fire1Pressed()
 {
 	TankInput.bFire1 = true;
 }
 
-proc ATank::Fire1Released()
+PROC ATank::Fire1Released()
 {
 	TankInput.bFire1 = false;
 }
 
-proc ATank::Fire2Pressed()
+PROC ATank::Fire2Pressed()
 {
 	TankInput.bFire2 = true;
 }
 
-proc ATank::Fire2Released()
+PROC ATank::Fire2Released()
 {
 	TankInput.bFire2 = false;
 }

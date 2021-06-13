@@ -8,7 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "TankStatics.h"
 
-#define proc void
+#define PROC void
 
 // Sets default values
 ATurret::ATurret()
@@ -24,7 +24,7 @@ ATurret::ATurret()
 }
 
 // Called when the game starts or when spawned
-proc ATurret::BeginPlay()
+PROC ATurret::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -34,7 +34,7 @@ proc ATurret::BeginPlay()
 }
 
 // Called every frame
-proc ATurret::Tick(float DeltaTime)
+PROC ATurret::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
