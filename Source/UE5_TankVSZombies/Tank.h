@@ -50,6 +50,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Tank")
 	const FTankInput& GetCurrentInput() const;
+	
+	void DamageHealth(const float X);
 
 protected:
 	// Called when the game starts or when spawned
