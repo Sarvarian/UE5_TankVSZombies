@@ -162,6 +162,10 @@ GETTER ATank::GetCurrentInput() const -> const FTankInput&
 	return TankInput;
 }
 
+PROC ATank::DamageHealth(const float X)
+{
+}
+
 PROC ATank::MoveX(float AxisValue)
 {
 	TankInput.MoveX(AxisValue);
